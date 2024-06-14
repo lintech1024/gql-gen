@@ -1,0 +1,12 @@
+query ListInstances($duration: Duration!, $serviceId: ID!){
+    listInstances(duration: $duration, serviceId: $serviceId){
+        id
+        name
+        attributes{
+            name
+            value
+        }
+        language
+        instanceUUID
+    }
+}

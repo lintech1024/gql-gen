@@ -1,0 +1,3 @@
+query ReadMetricsValue($condition: MetricsCondition!, $duration: Duration!){
+    readMetricsValue(condition: $condition, duration: $duration)
+}

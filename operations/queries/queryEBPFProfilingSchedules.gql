@@ -1,0 +1,23 @@
+query QueryEBPFProfilingSchedules($taskId: ID!){
+    queryEBPFProfilingSchedules(taskId: $taskId){
+        scheduleId
+        taskId
+        process{
+            id
+            name
+            serviceId
+            serviceName
+            instanceId
+            instanceName
+            agentId
+            detectType
+            attributes{
+                name
+                value
+            }
+            labels
+        }
+        startTime
+        endTime
+    }
+}

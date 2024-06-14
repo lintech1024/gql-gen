@@ -1,0 +1,7 @@
+mutation CreateEBPFProfilingFixedTimeTask($request: EBPFProfilingTaskFixedTimeCreationRequest!){
+    createEBPFProfilingFixedTimeTask(request: $request){
+        status
+        errorReason
+        id
+    }
+}

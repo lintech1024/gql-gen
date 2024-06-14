@@ -1,0 +1,15 @@
+query QueryContinuousProfilingServiceTargets($serviceId: ID!){
+    queryContinuousProfilingServiceTargets(serviceId: $serviceId){
+        type
+        checkItems{
+            type
+            threshold
+            period
+            count
+            uriList
+            uriRegex
+        }
+        triggeredCount
+        lastTriggerTimestamp
+    }
+}

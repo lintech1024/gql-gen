@@ -1,0 +1,7 @@
+mutation CreateEBPFNetworkProfiling($request: EBPFProfilingNetworkTaskRequest!){
+    createEBPFNetworkProfiling(request: $request){
+        status
+        errorReason
+        id
+    }
+}

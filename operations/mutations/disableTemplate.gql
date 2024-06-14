@@ -1,0 +1,7 @@
+mutation DisableTemplate($id: String!){
+    disableTemplate(id: $id){
+        id
+        status
+        message
+    }
+}

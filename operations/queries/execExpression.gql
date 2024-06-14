@@ -1,0 +1,19 @@
+query ExecExpression($expression: String!, $entity: Entity!, $duration: Duration!){
+    execExpression(expression: $expression, entity: $entity, duration: $duration){
+        type
+        results{
+            metric{
+                labels{
+                    key
+                    value
+                }
+            }
+            values{
+                id
+                value
+                traceID
+            }
+        }
+        error
+    }
+}

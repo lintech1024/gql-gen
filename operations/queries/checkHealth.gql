@@ -1,0 +1,6 @@
+query CheckHealth{
+    checkHealth{
+        score
+        details
+    }
+}

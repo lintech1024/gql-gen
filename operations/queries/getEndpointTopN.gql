@@ -1,0 +1,7 @@
+query GetEndpointTopN($serviceId: ID!, $name: String!, $topN: Int!, $duration: Duration!, $order: Order!){
+    getEndpointTopN(serviceId: $serviceId, name: $name, topN: $topN, duration: $duration, order: $order){
+        name
+        id
+        value
+    }
+}

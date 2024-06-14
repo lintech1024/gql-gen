@@ -1,0 +1,9 @@
+query GetMultipleLinearIntValues($metric: MetricCondition!, $numOfLinear: Int!, $duration: Duration!){
+    getMultipleLinearIntValues(metric: $metric, numOfLinear: $numOfLinear, duration: $duration){
+        values{
+            id
+            value
+            isEmptyValue
+        }
+    }
+}

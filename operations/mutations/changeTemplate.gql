@@ -1,0 +1,7 @@
+mutation ChangeTemplate($setting: DashboardSetting!){
+    changeTemplate(setting: $setting){
+        id
+        status
+        message
+    }
+}

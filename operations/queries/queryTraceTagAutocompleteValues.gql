@@ -1,0 +1,3 @@
+query QueryTraceTagAutocompleteValues($tagKey: String!, $duration: Duration!){
+    queryTraceTagAutocompleteValues(tagKey: $tagKey, duration: $duration)
+}

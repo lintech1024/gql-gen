@@ -1,0 +1,8 @@
+query ReadRecords($condition: RecordCondition!, $duration: Duration!){
+    readRecords(condition: $condition, duration: $duration){
+        name
+        id
+        value
+        refId
+    }
+}

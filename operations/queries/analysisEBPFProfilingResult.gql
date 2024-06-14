@@ -1,0 +1,14 @@
+query AnalysisEBPFProfilingResult($scheduleIdList: [ID!]!, $timeRanges: [EBPFProfilingAnalyzeTimeRange!]!, $aggregateType: EBPFProfilingAnalyzeAggregateType){
+    analysisEBPFProfilingResult(scheduleIdList: $scheduleIdList, timeRanges: $timeRanges, aggregateType: $aggregateType){
+        tip
+        trees{
+            elements{
+                id
+                parentId
+                symbol
+                stackType
+                dumpCount
+            }
+        }
+    }
+}

@@ -1,0 +1,21 @@
+query QueryLogs($condition: LogQueryCondition){
+    queryLogs(condition: $condition){
+        errorReason
+        logs{
+            serviceName
+            serviceId
+            serviceInstanceName
+            serviceInstanceId
+            endpointName
+            endpointId
+            traceId
+            timestamp
+            contentType
+            content
+            tags{
+                key
+                value
+            }
+        }
+    }
+}

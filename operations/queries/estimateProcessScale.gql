@@ -1,0 +1,3 @@
+query EstimateProcessScale($serviceId: ID!, $labels: [String!]!){
+    estimateProcessScale(serviceId: $serviceId, labels: $labels)
+}

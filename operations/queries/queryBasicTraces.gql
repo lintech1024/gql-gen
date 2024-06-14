@@ -1,0 +1,12 @@
+query QueryBasicTraces($condition: TraceQueryCondition){
+    queryBasicTraces(condition: $condition){
+        traces{
+            segmentId
+            endpointNames
+            duration
+            start
+            isError
+            traceIds
+        }
+    }
+}

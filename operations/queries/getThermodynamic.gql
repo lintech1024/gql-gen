@@ -1,0 +1,6 @@
+query GetThermodynamic($metric: MetricCondition!, $duration: Duration!){
+    getThermodynamic(metric: $metric, duration: $duration){
+        nodes
+        axisYStep
+    }
+}

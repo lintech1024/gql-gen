@@ -1,0 +1,12 @@
+query GetServiceInstances($duration: Duration!, $serviceId: ID!){
+    getServiceInstances(duration: $duration, serviceId: $serviceId){
+        id
+        name
+        attributes{
+            name
+            value
+        }
+        language
+        instanceUUID
+    }
+}

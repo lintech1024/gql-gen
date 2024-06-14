@@ -1,0 +1,8 @@
+query GetEndpointInfo($endpointId: ID!){
+    getEndpointInfo(endpointId: $endpointId){
+        id
+        name
+        serviceId
+        serviceName
+    }
+}

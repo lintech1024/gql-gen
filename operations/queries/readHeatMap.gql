@@ -1,0 +1,12 @@
+query ReadHeatMap($condition: MetricsCondition!, $duration: Duration!){
+    readHeatMap(condition: $condition, duration: $duration){
+        values{
+            id
+            values
+        }
+        buckets{
+            min
+            max
+        }
+    }
+}

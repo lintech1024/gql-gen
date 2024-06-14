@@ -1,0 +1,9 @@
+query GetLinearIntValues($metric: MetricCondition!, $duration: Duration!){
+    getLinearIntValues(metric: $metric, duration: $duration){
+        values{
+            id
+            value
+            isEmptyValue
+        }
+    }
+}

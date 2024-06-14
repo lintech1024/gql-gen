@@ -1,0 +1,7 @@
+query GetAllDatabases($duration: Duration!){
+    getAllDatabases(duration: $duration){
+        id
+        name
+        type
+    }
+}

@@ -1,0 +1,6 @@
+query QueryPrepareCreateEBPFProfilingTaskData($serviceId: ID!){
+    queryPrepareCreateEBPFProfilingTaskData(serviceId: $serviceId){
+        couldProfiling
+        processLabels
+    }
+}

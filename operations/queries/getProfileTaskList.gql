@@ -1,0 +1,20 @@
+query GetProfileTaskList($serviceId: ID, $endpointName: String){
+    getProfileTaskList(serviceId: $serviceId, endpointName: $endpointName){
+        id
+        serviceId
+        serviceName
+        endpointName
+        startTime
+        duration
+        minDurationThreshold
+        dumpPeriod
+        maxSamplingCount
+        logs{
+            id
+            instanceId
+            instanceName
+            operationType
+            operationTime
+        }
+    }
+}

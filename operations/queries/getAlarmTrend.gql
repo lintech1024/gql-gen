@@ -1,0 +1,5 @@
+query GetAlarmTrend($duration: Duration!){
+    getAlarmTrend(duration: $duration){
+        numOfAlarm
+    }
+}

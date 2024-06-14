@@ -1,0 +1,6 @@
+mutation SetContinuousProfilingPolicy($request: ContinuousProfilingPolicyCreation!){
+    setContinuousProfilingPolicy(request: $request){
+        status
+        errorReason
+    }
+}

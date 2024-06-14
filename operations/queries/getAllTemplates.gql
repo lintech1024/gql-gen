@@ -1,0 +1,6 @@
+query GetAllTemplates{
+    getAllTemplates{
+        id
+        configuration
+    }
+}

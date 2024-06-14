@@ -1,0 +1,32 @@
+query GetAlarm($duration: Duration!, $scope: Scope, $keyword: String, $paging: Pagination!, $tags: [AlarmTag]){
+    getAlarm(duration: $duration, scope: $scope, keyword: $keyword, paging: $paging, tags: $tags){
+        msgs{
+            startTime
+            scope
+            id
+            message
+            events{
+                uuid
+                source{
+                    service
+                    serviceInstance
+                    endpoint
+                }
+                name
+                type
+                message
+                parameters{
+                    key
+                    value
+                }
+                startTime
+                endTime
+                layer
+            }
+            tags{
+                key
+                value
+            }
+        }
+    }
+}

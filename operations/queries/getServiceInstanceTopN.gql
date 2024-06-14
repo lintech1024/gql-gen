@@ -1,0 +1,7 @@
+query GetServiceInstanceTopN($serviceId: ID!, $name: String!, $topN: Int!, $duration: Duration!, $order: Order!){
+    getServiceInstanceTopN(serviceId: $serviceId, name: $name, topN: $topN, duration: $duration, order: $order){
+        name
+        id
+        value
+    }
+}

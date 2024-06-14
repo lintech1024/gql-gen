@@ -1,0 +1,6 @@
+query GetTemplate($id: String!){
+    getTemplate(id: $id){
+        id
+        configuration
+    }
+}

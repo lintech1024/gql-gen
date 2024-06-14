@@ -1,0 +1,15 @@
+query GetSegmentsProfileAnalyze($queries: [SegmentProfileAnalyzeQuery!]!){
+    getSegmentsProfileAnalyze(queries: $queries){
+        tip
+        trees{
+            elements{
+                id
+                parentId
+                codeSignature
+                duration
+                durationChildExcluded
+                count
+            }
+        }
+    }
+}

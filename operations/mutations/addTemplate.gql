@@ -1,0 +1,7 @@
+mutation AddTemplate($setting: NewDashboardSetting!){
+    addTemplate(setting: $setting){
+        id
+        status
+        message
+    }
+}

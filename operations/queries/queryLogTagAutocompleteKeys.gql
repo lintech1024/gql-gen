@@ -1,0 +1,3 @@
+query QueryLogTagAutocompleteKeys($duration: Duration!){
+    queryLogTagAutocompleteKeys(duration: $duration)
+}

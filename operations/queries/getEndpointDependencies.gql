@@ -1,0 +1,20 @@
+query GetEndpointDependencies($endpointId: ID!, $duration: Duration!){
+    getEndpointDependencies(endpointId: $endpointId, duration: $duration){
+        nodes{
+            id
+            name
+            serviceId
+            serviceName
+            type
+            isReal
+        }
+        calls{
+            source
+            sourceComponents
+            target
+            targetComponents
+            id
+            detectPoints
+        }
+    }
+}

@@ -1,0 +1,7 @@
+query GetAllEndpointTopN($name: String!, $topN: Int!, $duration: Duration!, $order: Order!){
+    getAllEndpointTopN(name: $name, topN: $topN, duration: $duration, order: $order){
+        name
+        id
+        value
+    }
+}

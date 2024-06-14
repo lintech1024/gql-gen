@@ -1,0 +1,31 @@
+query QueryEBPFProfilingTasks($serviceId: ID, $serviceInstanceId: ID, $targets: [EBPFProfilingTargetType!], $triggerType: EBPFProfilingTriggerType, $duration: Duration){
+    queryEBPFProfilingTasks(serviceId: $serviceId, serviceInstanceId: $serviceInstanceId, targets: $targets, triggerType: $triggerType, duration: $duration){
+        taskId
+        serviceId
+        serviceName
+        serviceInstanceId
+        serviceInstanceName
+        processLabels
+        processId
+        processName
+        taskStartTime
+        triggerType
+        fixedTriggerDuration
+        continuousProfilingCauses{
+            type
+            singleValue{
+                threshold
+                current
+            }
+            uri{
+                uriRegex
+                uriPath
+                threshold
+                current
+            }
+            message
+        }
+        targetType
+        createTime
+    }
+}

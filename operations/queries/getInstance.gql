@@ -1,0 +1,12 @@
+query GetInstance($instanceId: String!){
+    getInstance(instanceId: $instanceId){
+        id
+        name
+        attributes{
+            name
+            value
+        }
+        language
+        instanceUUID
+    }
+}

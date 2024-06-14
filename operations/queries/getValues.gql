@@ -1,0 +1,9 @@
+query GetValues($metric: BatchMetricConditions!, $duration: Duration!){
+    getValues(metric: $metric, duration: $duration){
+        values{
+            id
+            value
+            isEmptyValue
+        }
+    }
+}

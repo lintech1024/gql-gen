@@ -1,0 +1,18 @@
+query GetGlobalTopology($duration: Duration!){
+    getGlobalTopology(duration: $duration){
+        nodes{
+            id
+            name
+            type
+            isReal
+        }
+        calls{
+            source
+            sourceComponents
+            target
+            targetComponents
+            id
+            detectPoints
+        }
+    }
+}

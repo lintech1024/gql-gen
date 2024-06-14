@@ -1,0 +1,29 @@
+query Test($requests: LogTestRequest!){
+    test(requests: $requests){
+        log{
+            serviceName
+            serviceId
+            serviceInstanceName
+            serviceInstanceId
+            endpointName
+            endpointId
+            traceId
+            timestamp
+            contentType
+            content
+            tags{
+                key
+                value
+            }
+        }
+        metrics{
+            name
+            tags{
+                key
+                value
+            }
+            value
+            timestamp
+        }
+    }
+}

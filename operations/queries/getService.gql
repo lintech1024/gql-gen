@@ -1,0 +1,10 @@
+query GetService($serviceId: String!){
+    getService(serviceId: $serviceId){
+        id
+        name
+        group
+        shortName
+        layers
+        normal
+    }
+}

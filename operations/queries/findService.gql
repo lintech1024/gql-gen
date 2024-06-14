@@ -1,0 +1,10 @@
+query FindService($serviceName: String!){
+    findService(serviceName: $serviceName){
+        id
+        name
+        group
+        shortName
+        layers
+        normal
+    }
+}

@@ -1,0 +1,9 @@
+query GetProfileTaskLogs($taskID: String){
+    getProfileTaskLogs(taskID: $taskID){
+        id
+        instanceId
+        instanceName
+        operationType
+        operationTime
+    }
+}

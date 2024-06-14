@@ -1,0 +1,18 @@
+query QueryBrowserErrorLogs($condition: BrowserErrorLogQueryCondition){
+    queryBrowserErrorLogs(condition: $condition){
+        logs{
+            service
+            serviceVersion
+            time
+            pagePath
+            category
+            grade
+            message
+            line
+            col
+            stack
+            errorUrl
+            firstReportedError
+        }
+    }
+}

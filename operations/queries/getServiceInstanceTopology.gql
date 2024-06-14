@@ -1,0 +1,20 @@
+query GetServiceInstanceTopology($clientServiceId: ID!, $serverServiceId: ID!, $duration: Duration!){
+    getServiceInstanceTopology(clientServiceId: $clientServiceId, serverServiceId: $serverServiceId, duration: $duration){
+        nodes{
+            id
+            name
+            serviceId
+            serviceName
+            type
+            isReal
+        }
+        calls{
+            source
+            sourceComponents
+            target
+            targetComponents
+            id
+            detectPoints
+        }
+    }
+}

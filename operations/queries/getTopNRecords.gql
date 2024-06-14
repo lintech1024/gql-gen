@@ -1,0 +1,7 @@
+query GetTopNRecords($condition: TopNRecordsCondition!){
+    getTopNRecords(condition: $condition){
+        statement
+        latency
+        traceId
+    }
+}

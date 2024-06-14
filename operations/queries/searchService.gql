@@ -1,0 +1,10 @@
+query SearchService($serviceCode: String!){
+    searchService(serviceCode: $serviceCode){
+        id
+        name
+        group
+        shortName
+        layers
+        normal
+    }
+}

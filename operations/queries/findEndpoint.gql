@@ -1,0 +1,6 @@
+query FindEndpoint($keyword: String, $serviceId: ID!, $limit: Int!){
+    findEndpoint(keyword: $keyword, serviceId: $serviceId, limit: $limit){
+        id
+        name
+    }
+}

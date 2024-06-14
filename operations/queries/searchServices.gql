@@ -1,0 +1,10 @@
+query SearchServices($duration: Duration!, $keyword: String!){
+    searchServices(duration: $duration, keyword: $keyword){
+        id
+        name
+        group
+        shortName
+        layers
+        normal
+    }
+}

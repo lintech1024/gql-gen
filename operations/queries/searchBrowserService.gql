@@ -1,0 +1,10 @@
+query SearchBrowserService($serviceCode: String!){
+    searchBrowserService(serviceCode: $serviceCode){
+        id
+        name
+        group
+        shortName
+        layers
+        normal
+    }
+}

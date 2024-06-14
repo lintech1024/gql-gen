@@ -1,0 +1,8 @@
+query ReadSampledRecords($condition: TopNCondition!, $duration: Duration!){
+    readSampledRecords(condition: $condition, duration: $duration){
+        name
+        id
+        value
+        refId
+    }
+}

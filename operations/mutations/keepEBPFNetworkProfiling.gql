@@ -1,0 +1,6 @@
+mutation KeepEBPFNetworkProfiling($taskId: ID!){
+    keepEBPFNetworkProfiling(taskId: $taskId){
+        status
+        errorReason
+    }
+}

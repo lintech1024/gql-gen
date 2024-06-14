@@ -1,0 +1,8 @@
+query SortMetrics($condition: TopNCondition!, $duration: Duration!){
+    sortMetrics(condition: $condition, duration: $duration){
+        name
+        id
+        value
+        refId
+    }
+}

@@ -1,0 +1,2817 @@
+"""Directs the executor to include this field or fragment only when the `if` argument is true"""
+directive @include(
+"""Included when true."""
+	if: Boolean!
+) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+"""Directs the executor to skip this field or fragment when the `if` argument is true."""
+directive @skip(
+"""Skipped when true."""
+	if: Boolean!
+) on FIELD | FRAGMENT_SPREAD | INLINE_FRAGMENT
+
+"""Marks the field, argument, input field or enum value as deprecated"""
+directive @deprecated(
+"""The reason for the deprecation"""
+	reason: String
+) on FIELD_DEFINITION | ARGUMENT_DEFINITION | ENUM_VALUE | INPUT_FIELD_DEFINITION
+
+"""Exposes a URL that specifies the behaviour of this scalar."""
+directive @specifiedBy(
+"""The URL that specifies the behaviour of this scalar."""
+	url: String!
+) on SCALAR
+
+type AlarmMessage {
+	startTime: Long!
+	scope: Scope
+	id: ID!
+	message: String!
+	events: [Event!]!
+	tags: [KeyValue!]!
+}
+
+input AlarmTag {
+	key: String!
+	value: String
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ the trend alarm trigger times"""
+type AlarmTrend {
+	numOfAlarm: [Int]!
+}
+
+type Alarms {
+	msgs: [AlarmMessage!]!
+}
+
+type Attribute {
+	name: String!
+	value: String!
+}
+
+"""Trace basic info"""
+type BasicTrace {
+	segmentId: String!
+	endpointNames: [String!]!
+	duration: Int!
+	start: String!
+	isError: Boolean
+	traceIds: [String!]!
+}
+
+input BatchMetricConditions {
+	name: String!
+	ids: [ID!]!
+}
+
+"""Built-in Boolean"""
+scalar Boolean
+
+"""Represent the browser error log"""
+type BrowserErrorLog {
+	service: String!
+	serviceVersion: String!
+	time: Long!
+	pagePath: String!
+	category: ErrorCategory!
+	grade: String
+	message: String
+	line: Int
+	col: Int
+	stack: String
+	errorUrl: String
+	firstReportedError: Boolean!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Represent the conditions used for query BrowserErrorLogBrief"""
+input BrowserErrorLogQueryCondition {
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Represent the conditions used for query BrowserErrorLogBrief"""
+	serviceId: ID
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Represent the conditions used for query BrowserErrorLogBrief"""
+	serviceVersionId: ID
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Represent the conditions used for query BrowserErrorLogBrief"""
+	pagePathId: ID
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Represent the conditions used for query BrowserErrorLogBrief"""
+	category: ErrorCategory
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Represent the conditions used for query BrowserErrorLogBrief"""
+	queryDuration: Duration
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Represent the conditions used for query BrowserErrorLogBrief"""
+	paging: Pagination!
+}
+
+"""The list of browser error log"""
+type BrowserErrorLogs {
+	logs: [BrowserErrorLog!]!
+}
+
+"""Bucket represents the value range."""
+type Bucket {
+"""Usually the number represents the min value of this bucket,
+could be `infinite-` string as unbounded value"""
+	min: String!
+"""Usually the number represents the max value of this bucket,
+could be `infinite+` string as unbounded value"""
+	max: String!
+}
+
+"""The Call represents a directed distributed call,
+from the `source` to the `target`."""
+type Call {
+	source: ID!
+"""The protocol and tech stack used at source side in this distributed call
+No value in instance topology and endpoint dependency."""
+	sourceComponents: [ID!]!
+	target: ID!
+"""The protocol and tech stack used at target side in this distributed call
+No value in instance topology and endpoint dependency."""
+	targetComponents: [ID!]!
+	id: ID!
+"""The detect Points of this distributed call."""
+	detectPoints: [DetectPoint!]!
+}
+
+enum ContentType {
+	TEXT
+	JSON
+	YAML
+}
+
+enum ContinuousProfilingMonitorType {
+"""monitoring Process CPU percent, value in [0-100]"""
+	PROCESS_CPU
+"""monitoring process thread count, value must bigger than zero"""
+	PROCESS_THREAD_COUNT
+"""monitoring current system load"""
+	SYSTEM_LOAD
+"""monitoring the process HTTP response error(status>=500) percent, value in [0-100]"""
+	HTTP_ERROR_RATE
+"""monitoring the process HTTP response duration(ms)"""
+	HTTP_AVG_RESPONSE_TIME
+}
+
+"""The Continuous Profiling monitoring instance"""
+type ContinuousProfilingMonitoringInstance {
+	id: ID!
+	name: String!
+	attributes: [Attribute!]!
+	triggeredCount: Int!
+	lastTriggerTimestamp: Long
+"""monitoring process list under the monitoring instance"""
+	processes: [ContinuousProfilingMonitoringProcess!]!
+}
+
+"""The Continuous Profiling monitoring process"""
+type ContinuousProfilingMonitoringProcess {
+	id: ID!
+	name: String!
+	detectType: String!
+	labels: [String!]!
+	triggeredCount: Int!
+	lastTriggerTimestamp: Long
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http:#www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Set policy configuration"""
+input ContinuousProfilingPolicyCreation {
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http:#www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Set policy configuration"""
+	serviceId: ID!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http:#www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Set policy configuration"""
+	targets: [ContinuousProfilingPolicyTargetCreation!]!
+}
+
+type ContinuousProfilingPolicyItem {
+	type: ContinuousProfilingMonitorType!
+	threshold: String!
+	period: Int!
+	count: Int!
+	uriList: [String!]
+	uriRegex: String
+}
+
+"""Policy item of continuous profiling"""
+input ContinuousProfilingPolicyItemCreation {
+"""Policy item of continuous profiling"""
+	type: ContinuousProfilingMonitorType!
+"""Policy item of continuous profiling"""
+	threshold: String!
+"""Policy item of continuous profiling"""
+	period: Int!
+"""Policy item of continuous profiling"""
+	count: Int!
+"""Policy item of continuous profiling"""
+	uriList: [String!]
+"""Policy item of continuous profiling"""
+	uriRegex: String
+}
+
+type ContinuousProfilingPolicyTarget {
+	type: ContinuousProfilingTargetType!
+	checkItems: [ContinuousProfilingPolicyItem!]!
+	triggeredCount: Int!
+	lastTriggerTimestamp: Long
+}
+
+input ContinuousProfilingPolicyTargetCreation {
+	targetType: ContinuousProfilingTargetType!
+	checkItems: [ContinuousProfilingPolicyItemCreation!]!
+}
+
+type ContinuousProfilingSetResult {
+"""TRUE if the policy is set successfully"""
+	status: Boolean!
+"""error reason when status == FALSE"""
+	errorReason: String
+}
+
+type ContinuousProfilingSingleValueCause {
+"""defined threshold"""
+	threshold: Long!
+"""current value of the process"""
+	current: Long!
+}
+
+enum ContinuousProfilingTargetType {
+"""eBPF On CPU Profiling"""
+	ON_CPU
+"""eBPF Off CPU Profiling"""
+	OFF_CPU
+"""eBPF Network Profiling"""
+	NETWORK
+}
+
+type ContinuousProfilingTriggeredCause {
+"""which type is reached the threshold
+all causes threshold and current value has multiply with "100" for avoid float value"""
+	type: ContinuousProfilingMonitorType!
+"""single value based cause"""
+	singleValue: ContinuousProfilingSingleValueCause
+"""uri based cause"""
+	uri: ContinuousProfilingURICause
+"""summary message of cause, including type, value or uri"""
+	message: String!
+}
+
+type ContinuousProfilingURICause {
+"""which URI triggered threshold(one of)"""
+	uriRegex: String
+	uriPath: String
+"""defined threshold"""
+	threshold: Long!
+"""current value of the process URI"""
+	current: Long!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Dashboard Configuration provides the management capabilities for SkyWalking native UI."""
+type DashboardConfiguration {
+"""ID is a generated UUID."""
+	id: String!
+"""JSON based configuration. The format of text is the export result on the UI page."""
+	configuration: String!
+}
+
+input DashboardSetting {
+	id: String!
+	configuration: String!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Legacy metrics query protocol
+Replaced by the metadata-v2 in the future"""
+type Database {
+	id: ID!
+	name: String!
+	type: String!
+}
+
+enum DetectPoint {
+	CLIENT
+	SERVER
+	PROXY
+}
+
+"""The Duration defines the start and end time for each query operation.
+Fields: `start` and `end`
+  represents the time span. And each of them matches the step.
+  ref https://www.ietf.org/rfc/rfc3339.txt
+  The time formats are
+      `SECOND` step: yyyy-MM-dd HHmmss
+      `MINUTE` step: yyyy-MM-dd HHmm
+      `HOUR` step: yyyy-MM-dd HH
+      `DAY` step: yyyy-MM-dd
+      `MONTH` step: yyyy-MM
+Field: `step`
+  represents the accurate time point.
+e.g.
+  if step==HOUR , start=2017-11-08 09, end=2017-11-08 19
+  then
+      metrics from the following time points expected
+      2017-11-08 9:00 -> 2017-11-08 19:00
+      there are 11 time points (hours) in the time span."""
+input Duration {
+"""The Duration defines the start and end time for each query operation.
+Fields: `start` and `end`
+  represents the time span. And each of them matches the step.
+  ref https://www.ietf.org/rfc/rfc3339.txt
+  The time formats are
+      `SECOND` step: yyyy-MM-dd HHmmss
+      `MINUTE` step: yyyy-MM-dd HHmm
+      `HOUR` step: yyyy-MM-dd HH
+      `DAY` step: yyyy-MM-dd
+      `MONTH` step: yyyy-MM
+Field: `step`
+  represents the accurate time point.
+e.g.
+  if step==HOUR , start=2017-11-08 09, end=2017-11-08 19
+  then
+      metrics from the following time points expected
+      2017-11-08 9:00 -> 2017-11-08 19:00
+      there are 11 time points (hours) in the time span."""
+	start: String!
+"""The Duration defines the start and end time for each query operation.
+Fields: `start` and `end`
+  represents the time span. And each of them matches the step.
+  ref https://www.ietf.org/rfc/rfc3339.txt
+  The time formats are
+      `SECOND` step: yyyy-MM-dd HHmmss
+      `MINUTE` step: yyyy-MM-dd HHmm
+      `HOUR` step: yyyy-MM-dd HH
+      `DAY` step: yyyy-MM-dd
+      `MONTH` step: yyyy-MM
+Field: `step`
+  represents the accurate time point.
+e.g.
+  if step==HOUR , start=2017-11-08 09, end=2017-11-08 19
+  then
+      metrics from the following time points expected
+      2017-11-08 9:00 -> 2017-11-08 19:00
+      there are 11 time points (hours) in the time span."""
+	end: String!
+"""The Duration defines the start and end time for each query operation.
+Fields: `start` and `end`
+  represents the time span. And each of them matches the step.
+  ref https://www.ietf.org/rfc/rfc3339.txt
+  The time formats are
+      `SECOND` step: yyyy-MM-dd HHmmss
+      `MINUTE` step: yyyy-MM-dd HHmm
+      `HOUR` step: yyyy-MM-dd HH
+      `DAY` step: yyyy-MM-dd
+      `MONTH` step: yyyy-MM
+Field: `step`
+  represents the accurate time point.
+e.g.
+  if step==HOUR , start=2017-11-08 09, end=2017-11-08 19
+  then
+      metrics from the following time points expected
+      2017-11-08 9:00 -> 2017-11-08 19:00
+      there are 11 time points (hours) in the time span."""
+	step: Step!
+}
+
+"""Settings for the behaviours of sampling.
+HTTP request and response could be large between the system.
+These settings help the agent to collect necessary data and cost reasonable resources for the agent, transforming, and OAP storage."""
+input EBPFNetworkDataCollectingSettings {
+"""Settings for the behaviours of sampling.
+HTTP request and response could be large between the system.
+These settings help the agent to collect necessary data and cost reasonable resources for the agent, transforming, and OAP storage."""
+	requireCompleteRequest: Boolean!
+"""Settings for the behaviours of sampling.
+HTTP request and response could be large between the system.
+These settings help the agent to collect necessary data and cost reasonable resources for the agent, transforming, and OAP storage."""
+	maxRequestSize: Int
+"""Settings for the behaviours of sampling.
+HTTP request and response could be large between the system.
+These settings help the agent to collect necessary data and cost reasonable resources for the agent, transforming, and OAP storage."""
+	requireCompleteResponse: Boolean!
+"""Settings for the behaviours of sampling.
+HTTP request and response could be large between the system.
+These settings help the agent to collect necessary data and cost reasonable resources for the agent, transforming, and OAP storage."""
+	maxResponseSize: Int
+}
+
+"""eBPF Profiling task keep alive result"""
+type EBPFNetworkKeepProfilingResult {
+"""TRUE if the task is kept alive successfully
+When one of the following conditions occurs, response in error status:
+1. The profiling task does not exist.
+2. The target type of profiling task is not "NETWORK".
+3. The profiling task is already finished when the OAP received keep-alive request."""
+	status: Boolean!
+"""error reason when status == FALSE"""
+	errorReason: String
+}
+
+"""EBPFNetworkSamplingRule defines the URI scopes for HTTP request and response collecting under given HTTP response code circumstances."""
+input EBPFNetworkSamplingRule {
+"""EBPFNetworkSamplingRule defines the URI scopes for HTTP request and response collecting under given HTTP response code circumstances."""
+	uriRegex: String
+"""EBPFNetworkSamplingRule defines the URI scopes for HTTP request and response collecting under given HTTP response code circumstances."""
+	minDuration: Int
+"""EBPFNetworkSamplingRule defines the URI scopes for HTTP request and response collecting under given HTTP response code circumstances."""
+	when4xx: Boolean!
+"""EBPFNetworkSamplingRule defines the URI scopes for HTTP request and response collecting under given HTTP response code circumstances."""
+	when5xx: Boolean!
+"""EBPFNetworkSamplingRule defines the URI scopes for HTTP request and response collecting under given HTTP response code circumstances."""
+	settings: EBPFNetworkDataCollectingSettings!
+}
+
+type EBPFProfilingAnalyzation {
+"""if not empty means backend has information gave to the user"""
+	tip: String
+"""profiling analyzed trees"""
+	trees: [EBPFProfilingTree!]!
+}
+
+enum EBPFProfilingAnalyzeAggregateType {
+"""Aggregate by the total duration of stack
+For "OFF_CPU" target type of profiling: Statics the total time spent in off cpu."""
+	DURATION
+"""Aggregate by the trigger count
+For "ON_CPU" target type of profiling: Statics the number of dump count.
+For "OFF_CPU" target type of profiling: Statics the number of times the process is switched to off cpu by the scheduler."""
+	COUNT
+}
+
+input EBPFProfilingAnalyzeTimeRange {
+	start: Long!
+	end: Long!
+}
+
+"""The request of eBPF network profiling task"""
+input EBPFProfilingNetworkTaskRequest {
+"""The request of eBPF network profiling task"""
+	instanceId: String!
+"""The request of eBPF network profiling task"""
+	samplings: [EBPFNetworkSamplingRule!]
+}
+
+type EBPFProfilingSchedule {
+"""profiling task schedule ID"""
+	scheduleId: ID!
+"""profiling task ID"""
+	taskId: ID!
+"""process entity"""
+	process: Process!
+"""profiling schedule start timestamp(ms)"""
+	startTime: Long!
+"""profiling schedule finished timestamp(ms)"""
+	endTime: Long!
+}
+
+type EBPFProfilingStackElement {
+"""the element ID"""
+	id: String!
+"""the parent element ID"""
+	parentId: String!
+"""stack element symbol name"""
+	symbol: String!
+"""stack element type"""
+	stackType: EBPFProfilingStackType!
+"""current stack element total dump count"""
+	dumpCount: Long!
+}
+
+enum EBPFProfilingStackType {
+	KERNEL_SPACE
+	USER_SPACE
+}
+
+"""The way of profiling the process
+relate with Linux function: https://man7.org/linux/man-pages/man2/perf_event_open.2.html"""
+enum EBPFProfilingTargetType {
+"""Using "PERF_COUNT_SW_CPU_CLOCK" to profiling process with CPU clock"""
+	ON_CPU
+"""Using "finish_task_switch" of kprobe to profiling process
+relate with blog: https://www.brendangregg.com/offcpuanalysis.html"""
+	OFF_CPU
+"""Using many syscall to complete network topology monitoring, such as sys_connect, sys_read, sys_write, etc."""
+	NETWORK
+}
+
+"""eBPF profiling task data"""
+type EBPFProfilingTask {
+"""profiling task ID"""
+	taskId: ID!
+"""service of profiling task"""
+	serviceId: ID!
+	serviceName: String!
+"""service instance of profiling task"""
+	serviceInstanceId: ID
+	serviceInstanceName: String
+"""process labels for filter"""
+	processLabels: [String!]!
+"""process of profiling task triggered by continuous profiling"""
+	processId: ID
+	processName: String
+"""Start time of the task, type is timestamp."""
+	taskStartTime: Long!
+"""profiling task trigger type"""
+	triggerType: EBPFProfilingTriggerType!
+"""task profiling duration"""
+	fixedTriggerDuration: Long
+""""CONTINUOUS_PROFILING" type task causes"""
+	continuousProfilingCauses: [ContinuousProfilingTriggeredCause!]
+"""profiling task target type"""
+	targetType: EBPFProfilingTargetType!
+"""the timestamp of creating this task"""
+	createTime: Long!
+}
+
+"""eBPF Profiling task creation result"""
+type EBPFProfilingTaskCreationResult {
+"""TRUE if the task is created successfully"""
+	status: Boolean!
+"""error reason when status == FALSE"""
+	errorReason: String
+"""The task ID when status = TRUE"""
+	id: String
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+The creation request of eBPF profiling fixed time task"""
+input EBPFProfilingTaskFixedTimeCreationRequest {
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+The creation request of eBPF profiling fixed time task"""
+	serviceId: String!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+The creation request of eBPF profiling fixed time task"""
+	processLabels: [String!]!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+The creation request of eBPF profiling fixed time task"""
+	startTime: Long!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+The creation request of eBPF profiling fixed time task"""
+	duration: Int!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+The creation request of eBPF profiling fixed time task"""
+	targetType: EBPFProfilingTargetType!
+}
+
+"""Prepare for creating the eBPF profiling task needs data"""
+type EBPFProfilingTaskPrepare {
+"""have enough process could profiling"""
+	couldProfiling: Boolean!
+"""all process unique labels for filter"""
+	processLabels: [String!]!
+}
+
+type EBPFProfilingTree {
+"""profiling stack elements"""
+	elements: [EBPFProfilingStackElement!]!
+}
+
+"""Define when the profiling task would be execute"""
+enum EBPFProfilingTriggerType {
+"""Appoint the task executing total duration"""
+	FIXED_TIME
+"""Trigger by the reach the continuous profiling policy"""
+	CONTINUOUS_PROFILING
+}
+
+"""The endpoint is the minimal functional unit.
+Typically, it presents a URI or gRPC service name in the service.
+Different from instance, this is a logical functional unit."""
+type Endpoint {
+	id: ID!
+	name: String!
+}
+
+type EndpointInfo {
+	id: ID!
+	name: String!
+	serviceId: ID!
+	serviceName: String!
+}
+
+"""Node in EndpointTopology"""
+type EndpointNode {
+"""The instance id of each node,"""
+	id: ID!
+"""The literal name of the #id. Endpoint Name"""
+	name: String!
+"""Service id"""
+	serviceId: ID!
+"""The literal name of the #serviceId."""
+	serviceName: String!
+"""[Deprecated]
+No type for service instance topology."""
+	type: String
+"""It is a conjuecture node or real node, to represent an instance."""
+	isReal: Boolean!
+}
+
+"""The endpoint topology"""
+type EndpointTopology {
+	nodes: [EndpointNode!]!
+	calls: [Call!]!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+input Entity {
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	scope: Scope
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	serviceName: String
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	normal: Boolean
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	serviceInstanceName: String
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	endpointName: String
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	processName: String
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	destServiceName: String
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	destNormal: Boolean
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	destServiceInstanceName: String
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	destEndpointName: String
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+SkyWalking Metrics Query Expression(MQE) is an extension query mechanism.
+MQE allows users to do simple query-stage calculation like well known PromQL."""
+	destProcessName: String
+}
+
+enum ErrorCategory {
+	ALL
+	AJAX
+	RESOURCE
+	VUE
+	PROMISE
+	JS
+	UNKNOWN
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License."""
+type Event {
+	uuid: String!
+	source: Source!
+	name: String!
+	type: EventType!
+	message: String
+	parameters: [KeyValue!]
+"""The start time (in milliseconds) of the event, measured between the current time and midnight, January 1, 1970 UTC.
+This field may be 0 if the user didn't report it or the `start` event is lost due to network issues."""
+	startTime: Long!
+"""The end time (in milliseconds) of the event, measured between the current time and midnight, January 1, 1970 UTC. Empty or 0 if the event have not finished yet.
+This field may be 0 if the user didn't report it or the `end` event is lost due to network issues."""
+	endTime: Long
+	layer: String!
+}
+
+input EventQueryCondition {
+	uuid: String
+	source: SourceInput
+	name: String
+	type: EventType
+	time: Duration
+	order: Order
+	layer: String
+	paging: Pagination!
+}
+
+enum EventType {
+	Normal
+	Error
+}
+
+type Events {
+	events: [Event!]!
+}
+
+type ExpressionResult {
+	type: ExpressionResultType!
+"""When the type == TIME_SERIES_VALUES or SINGLE_VALUE, the results would be a collection of MQEValues according to the metric labels.
+In other legal type cases, only one MQEValues is expected in the array."""
+	results: [MQEValues!]!
+"""When type == ExpressionResultType.UNKNOWN,
+the error message includes the expression resolving errors."""
+	error: String
+}
+
+enum ExpressionResultType {
+"""Can't resolve the type of the given expression."""
+	UNKNOWN
+"""A single value"""
+	SINGLE_VALUE
+"""A collection of time-series values.
+The value could have labels or not."""
+	TIME_SERIES_VALUES
+"""A collection of aggregated values through metric sort function"""
+	SORTED_LIST
+"""A collection of sampled records.
+When the original metric type is sampled records"""
+	RECORD_LIST
+}
+
+type HealthStatus {
+"""0 means healthy, more than 0 means unhealthy
+and less than 0 means oap doesn't startup."""
+	score: Int!
+"""some details about the score value."""
+	details: String
+}
+
+type HeatMap {
+"""Each element of values matches the time point of the query duration.
+The element in the IntValues represents the value of the same index bucket"""
+	values: [HeatMapColumn!]!
+"""Bucket describes the ranges of #values represent."""
+	buckets: [Bucket!]!
+}
+
+type HeatMapColumn {
+	id: ID!
+	values: [Long!]!
+}
+
+"""Built-in ID"""
+scalar ID
+
+"""An instantaneous point on the time-line.
+An instant represents a data point accurate to the nanosecond.
+It is constituted by a long representing epoch-seconds and an int representing nanosecond-of-second,
+which will always be between 0 and 999,999,999"""
+type Instant {
+"""The number of seconds from the epoch of 1970-01-01T00:00:00Z."""
+	seconds: Long!
+"""The number of nanoseconds, later along the time-line, from the seconds field.
+This is always positive, and never exceeds 999,999,999."""
+	nanos: Int!
+}
+
+"""Built-in Int"""
+scalar Int
+
+type IntValues {
+	values: [KVInt!]!
+}
+
+type KVInt {
+	id: ID!
+"""This is the value, the caller must understand the Unit.
+Such as:
+1. If ask for cpm metric, the unit and result should be count.
+2. If ask for response time (p99 or avg), the unit should be millisecond."""
+	value: Long!
+"""Since 9.5.0, isEmptyValue indicates whether value == 0 represents actually zero(false, default) or no data(true)."""
+	isEmptyValue: Boolean!
+}
+
+"""String key, Long/Int value pair."""
+type KeyNumericValue {
+	key: String!
+	value: Long!
+}
+
+"""String key, String value pair."""
+type KeyValue {
+	key: String!
+	value: String
+}
+
+enum Language {
+"""For not language based agent, the language is impossible to tell."""
+	UNKNOWN
+	JAVA
+	DOTNET
+	NODEJS
+	PYTHON
+	RUBY
+	GO
+	LUA
+	PHP
+}
+
+"""Log info"""
+type Log {
+	serviceName: String
+	serviceId: ID
+	serviceInstanceName: String
+	serviceInstanceId: ID
+	endpointName: String
+	endpointId: ID
+	traceId: String
+	timestamp: Long!
+	contentType: ContentType!
+	content: String
+	tags: [KeyValue!]
+}
+
+type LogEntity {
+"""The timestamp of the log in millisecond"""
+	time: Long!
+	data: [KeyValue!]
+}
+
+"""Represent the conditions used for query logs"""
+input LogQueryCondition {
+"""Represent the conditions used for query logs"""
+	serviceId: ID
+"""Represent the conditions used for query logs"""
+	serviceInstanceId: ID
+"""Represent the conditions used for query logs"""
+	endpointId: ID
+"""Represent the conditions used for query logs"""
+	relatedTrace: TraceScopeCondition
+"""Represent the conditions used for query logs"""
+	queryDuration: Duration
+"""Represent the conditions used for query logs"""
+	paging: Pagination!
+"""Represent the conditions used for query logs"""
+	tags: [LogTag!]
+"""Represent the conditions used for query logs"""
+	keywordsOfContent: [String!]
+"""Represent the conditions used for query logs"""
+	excludingKeywordsOfContent: [String!]
+"""Represent the conditions used for query logs"""
+	queryOrder: Order
+}
+
+input LogTag {
+	key: String!
+	value: String
+}
+
+"""The metrics generated during the LAL when testing a LogTestRequest"""
+type LogTestMetrics {
+	name: String!
+	tags: [KeyValue!]
+	value: Long!
+	timestamp: Long!
+}
+
+input LogTestRequest {
+	log: String!
+	dsl: String!
+}
+
+type LogTestResponse {
+"""The final log if it will be persisted, this can be empty if the log is dropped."""
+	log: Log
+"""The metrics generated during the LAL when testing a LogTestRequest"""
+	metrics: [LogTestMetrics!]
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+The list of logs"""
+type Logs {
+"""When this field is not empty, frontend should display it in UI"""
+	errorReason: String
+	logs: [Log!]!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License."""
+scalar Long
+
+type MQEValue {
+"""Timestamp or name of the entity or record. It could be NULL if it is the result of an aggregate calculation."""
+	id: ID
+"""Value is formatted double/int or NULL if the value is absent."""
+	value: String
+"""Sampled record could associate with a trace.
+This would be a trace ID only."""
+	traceID: ID
+}
+
+type MQEValues {
+"""The metadata description of this value series. It could be NULL if it is the result of the different metrics calculation."""
+	metric: Metadata
+"""1. When the type == SINGLE_VALUE, values only have one value.
+2. When the type == TIME_SERIES_VALUES, values would match the given elements in the duration range.
+3. When the type == SORTED_LIST, values could be results of `sort(metric)`
+4. When the type == RECORD_LIST, values could be sampled records"""
+	values: [MQEValue!]!
+}
+
+type MenuItem {
+"""Title name"""
+	title: String!
+"""Showing icon name"""
+	icon: String
+"""Linked layer name"""
+	layer: String!
+"""Activated menu should be listed on the menu,
+otherwise, it should stay in marketplace."""
+	activate: Boolean!
+"""Sub menu items"""
+	subItems: [MenuItem!]!
+"""Description of the item"""
+	description: String
+"""The document link for the latest version of this feature."""
+	documentLink: String
+"""The i18n key for the title and description of this feature display in the UI."""
+	i18nKey: String
+}
+
+type Metadata {
+"""Key-value pairs to describe the metric"""
+	labels: [KeyValue!]!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Legacy metrics query protocol
+Replaced by the metrics-v2 in the future"""
+input MetricCondition {
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Legacy metrics query protocol
+Replaced by the metrics-v2 in the future"""
+	name: String!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Legacy metrics query protocol
+Replaced by the metrics-v2 in the future"""
+	id: ID
+}
+
+"""Define the metrics provided in the OAP server."""
+type MetricDefinition {
+	name: String!
+	type: MetricsType!
+"""Catalog includes
+SERVICE_CATALOG,SERVICE_INSTANCE_CATALOG,ENDPOINT_CATALOG,
+SERVICE_RELATION_CATALOG,SERVICE_INSTANCE_RELATION_CATALOG_NAME,ENDPOINT_RELATION_CATALOG_NAME"""
+	catalog: String
+}
+
+input MetricsCondition {
+	name: String!
+	entity: Entity!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Legacy metrics query protocol deprecated since 9.5.0. Replaced by the metrics-v3.
+Metrics v2 query protocol is an alternative metrics query(s) of original v1,
+defined in the metric.graphql, top-n-records.graphqls, and aggregation.graphqls.
+By leveraging the new ID rule(no register) in the v8, we could query metrics based on name(s) directly.
+Metrics type is a new concept since v8."""
+enum MetricsType {
+"""Can't find the metrics type definition."""
+	UNKNOWN
+"""Regular value type is suitable for readMetricsValue, readMetricsValues and sortMetrics"""
+	REGULAR_VALUE
+"""Metrics value includes multiple labels, is suitable for readLabeledMetricsValues
+Label should be assigned before the query happens, such as at the setting stage"""
+	LABELED_VALUE
+"""Heatmap value suitable for readHeatMap"""
+	HEATMAP
+"""Top metrics is for readSampledRecords only."""
+	SAMPLED_RECORD
+}
+
+type MetricsValues {
+"""Could be null if no label assigned in the query condition"""
+	label: String
+"""Values of this label value."""
+	values: IntValues
+}
+
+type Mutation {
+	version: String
+"""crate new profile task"""
+	createProfileTask(
+		creationRequest: ProfileTaskCreationRequest
+	): ProfileTaskCreationResult!
+	addTemplate(
+		setting: NewDashboardSetting!
+	): TemplateChangeStatus!
+	changeTemplate(
+		setting: DashboardSetting!
+	): TemplateChangeStatus!
+	disableTemplate(
+		id: String!
+	): TemplateChangeStatus!
+"""create a new eBPF fixed time profiling task"""
+	createEBPFProfilingFixedTimeTask(
+		request: EBPFProfilingTaskFixedTimeCreationRequest!
+	): EBPFProfilingTaskCreationResult!
+"""create a new eBPF network profiling task"""
+	createEBPFNetworkProfiling(
+		request: EBPFProfilingNetworkTaskRequest!
+	): EBPFProfilingTaskCreationResult!
+"""keep alive the eBPF profiling task"""
+	keepEBPFNetworkProfiling(
+		taskId: ID!
+	): EBPFNetworkKeepProfilingResult!
+"""set the continuous profiling policy"""
+	setContinuousProfilingPolicy(
+		request: ContinuousProfilingPolicyCreation!
+	): ContinuousProfilingSetResult!
+}
+
+"""Used for add new template"""
+input NewDashboardSetting {
+"""Used for add new template"""
+	configuration: String!
+}
+
+"""Node in Topology"""
+type Node {
+"""The service ID of the node."""
+	id: ID!
+"""The literal name of the #id."""
+	name: String!
+"""The type name may be
+1. The service provider/middleware tech, such as: Tomcat, SpringMVC
+2. Conjectural Service, e.g. MySQL, Redis, Kafka"""
+	type: String
+"""It is a conjecture node or real node, to represent a service or endpoint."""
+	isReal: Boolean!
+}
+
+"""Since 9.5.0, a value is Long type, and also nullable."""
+type NullableValue {
+"""This is the value, the caller must understand the Unit.
+Such as:
+1. If ask for cpm metric, the unit and result should be count.
+2. If ask for response time (p99 or avg), the unit should be millisecond."""
+	value: Long!
+"""isEmptyValue indicates whether value == 0 represents actually zero(false, default) or no data(true)."""
+	isEmptyValue: Boolean!
+}
+
+enum Order {
+	ASC
+	DES
+}
+
+input Pagination {
+	pageNum: Int
+	pageSize: Int!
+}
+
+"""The process is an operating system process under service instance."""
+type Process {
+"""Process entity"""
+	id: ID!
+	name: String!
+	serviceId: ID!
+	serviceName: String!
+	instanceId: ID!
+	instanceName: String!
+"""Which agent report this process."""
+	agentId: String!
+"""The process found type."""
+	detectType: String!
+"""The process attributes, different process detect type have different corresponding attributes."""
+	attributes: [Attribute!]!
+"""The process labels."""
+	labels: [String!]!
+}
+
+"""Node in ProcessTopology"""
+type ProcessNode {
+"""The process id of each node."""
+	id: ID!
+"""Service id"""
+	serviceId: ID!
+"""The literal name of the #serviceId."""
+	serviceName: String!
+"""Service Instance id"""
+	serviceInstanceId: ID!
+"""The literal name of the #serviceInstanceId."""
+	serviceInstanceName: String!
+"""The name of the process"""
+	name: String!
+"""It's a virtual node or real node.
+A unreal node means that the current node is not a process belonging to this instance, but interacting with the processes belonging to the instance."""
+	isReal: Boolean!
+}
+
+type ProcessTopology {
+	nodes: [ProcessNode!]!
+	calls: [Call!]!
+}
+
+"""Profile analyze result"""
+type ProfileAnalyzation {
+"""if not empty means backend has information gave to the user
+such as: a large number of snapshots, only analyze part of the data"""
+	tip: String
+"""thread stack dump analyze trees"""
+	trees: [ProfileStackTree!]!
+}
+
+input ProfileAnalyzeTimeRange {
+	start: Long!
+	end: Long!
+}
+
+"""Profile thread stack analyze tree element"""
+type ProfileStackElement {
+"""work for tree building, id matches multiple parentId"""
+	id: ID!
+	parentId: ID!
+"""stack code signature"""
+	codeSignature: String!
+"""Include the execution time of children(millisecond)"""
+	duration: Int!
+"""Exclude  the execution time of children(millisecond)"""
+	durationChildExcluded: Int!
+"""continuous dump count"""
+	count: Int!
+}
+
+"""Profile thread stack anayze tree"""
+type ProfileStackTree {
+	elements: [ProfileStackElement!]!
+}
+
+"""Profile"""
+type ProfileTask {
+	id: String!
+"""monitor service"""
+	serviceId: ID!
+	serviceName: String!
+"""endpoint name to monitored under the special service."""
+	endpointName: String!
+"""task start time (timestamp)"""
+	startTime: Long!
+"""duration of this task (minute)"""
+	duration: Int!
+"""when the segment starts to execute, how long must it take before the monitor can be enbaled"""
+	minDurationThreshold: Int!
+"""when start monitor, time interval for each dumping the stack"""
+	dumpPeriod: Int!
+"""max number of traces will monitor on the sniffer"""
+	maxSamplingCount: Int!
+"""instance operation logs"""
+	logs: [ProfileTaskLog!]!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Profile task create need data"""
+input ProfileTaskCreationRequest {
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Profile task create need data"""
+	serviceId: ID!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Profile task create need data"""
+	endpointName: String!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Profile task create need data"""
+	startTime: Long
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Profile task create need data"""
+	duration: Int!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Profile task create need data"""
+	minDurationThreshold: Int!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Profile task create need data"""
+	dumpPeriod: Int!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Profile task create need data"""
+	maxSamplingCount: Int!
+}
+
+"""Profile task create result"""
+type ProfileTaskCreationResult {
+"""if null or empty means the task create success, otherwise get create error reason"""
+	errorReason: String
+"""get data id when create success"""
+	id: String
+}
+
+"""Profile task execute log"""
+type ProfileTaskLog {
+	id: String!
+"""execute instance"""
+	instanceId: ID!
+	instanceName: String!
+"""operation type"""
+	operationType: ProfileTaskLogOperationType!
+"""operation time"""
+	operationTime: Long!
+}
+
+"""Profile task log operation type"""
+enum ProfileTaskLogOperationType {
+"""when sniffer has notified"""
+	NOTIFIED
+"""when sniffer has execution finished to report"""
+	EXECUTION_FINISHED
+}
+
+type ProfiledSpan {
+	spanId: Int!
+	parentSpanId: Int!
+	segmentId: ID!
+	refs: [Ref!]!
+	serviceCode: String!
+	serviceInstanceName: ID!
+	startTime: Long!
+	endTime: Long!
+	endpointName: String
+"""There are three span types: Local, Entry and Exit"""
+	type: String!
+"""Peer network id, e.g. host+port, ip+port"""
+	peer: String
+	component: String
+	isError: Boolean
+"""There are 5 layers: Unknown, Database, RPCFramework, Http, MQ and Cache"""
+	layer: String
+	tags: [KeyValue!]!
+	logs: [LogEntity!]!
+"""Status represents profiling data that covers the duration of the span."""
+	profiled: Boolean!
+}
+
+type ProfiledTraceSegments {
+	traceId: String!
+	instanceId: ID!
+	instanceName: String!
+	endpointNames: [String!]!
+	duration: Int!
+	start: String!
+	spans: [ProfiledSpan!]!
+}
+
+"""Root node"""
+type Query {
+	version: String
+"""Query Health Checker module for the status of OAP server"""
+	checkHealth: HealthStatus!
+"""Normal service related meta info"""
+	getAllServices(
+		duration: Duration!
+		group: String
+	): [Service!]!
+	searchServices(
+		duration: Duration!
+		keyword: String!
+	): [Service!]!
+	searchService(
+		serviceCode: String!
+	): Service
+"""Fetch all services of Browser type"""
+	getAllBrowserServices(
+		duration: Duration!
+	): [Service!]!
+	searchBrowserServices(
+		duration: Duration!
+		keyword: String!
+	): [Service!]!
+	searchBrowserService(
+		serviceCode: String!
+	): Service
+"""Service instance query"""
+	getServiceInstances(
+		duration: Duration!
+		serviceId: ID!
+	): [ServiceInstance!]!
+"""Endpoint query
+Consider there are huge numbers of endpoint,
+must use endpoint owner's service id, keyword and limit filter to do query."""
+	searchEndpoint(
+		keyword: String!
+		serviceId: ID!
+		limit: Int!
+	): [Endpoint!]!
+"""Database related meta info."""
+	getAllDatabases(
+		duration: Duration!
+	): [Database!]!
+"""Query the global topology"""
+	getGlobalTopology(
+		duration: Duration!
+	): Topology
+"""Query the topology, based on the given service"""
+	getServiceTopology(
+		serviceId: ID!
+		duration: Duration!
+	): Topology
+"""Query the topology, based on the given services.
+`#getServiceTopology` could be replaced by this."""
+	getServicesTopology(
+		serviceIds: [ID!]!
+		duration: Duration!
+	): Topology
+"""Query the instance topology, based on the given clientServiceId and serverServiceId"""
+	getServiceInstanceTopology(
+		clientServiceId: ID!
+		serverServiceId: ID!
+		duration: Duration!
+	): ServiceInstanceTopology
+"""Query the topology, based on the given endpoint"""
+	getEndpointTopology(
+		endpointId: ID!
+		duration: Duration!
+	): Topology
+"""v2 of getEndpointTopology"""
+	getEndpointDependencies(
+		endpointId: ID!
+		duration: Duration!
+	): EndpointTopology
+"""Query the topology, based on the given instance"""
+	getProcessTopology(
+		serviceInstanceId: ID!
+		duration: Duration!
+	): ProcessTopology
+"""Metrics definition metadata query. Response the metrics type which determines the suitable query methods."""
+	typeOfMetrics(
+		name: String!
+	): MetricsType!
+"""Get the list of all available metrics in the current OAP server.
+Param, regex, could be used to filter the metrics by name."""
+	listMetrics(
+		regex: String
+	): [MetricDefinition!]!
+	execExpression(
+		expression: String!
+		entity: Entity!
+		duration: Duration!
+	): ExpressionResult!
+	getValues(
+		metric: BatchMetricConditions!
+		duration: Duration!
+	): IntValues
+	getLinearIntValues(
+		metric: MetricCondition!
+		duration: Duration!
+	): IntValues
+"""Query the type of metrics including multiple values, and format them as multiple linears.
+The seq of these multiple lines base on the calculation func in OAL
+Such as, should us this to query the result of func percentile(50,75,90,95,99) in OAL,
+then five lines will be responded, p50 is the first element of return value."""
+	getMultipleLinearIntValues(
+		metric: MetricCondition!
+		numOfLinear: Int!
+		duration: Duration!
+	): [IntValues!]!
+	getSubsetOfMultipleLinearIntValues(
+		metric: MetricCondition!
+		linearIndex: [Int!]!
+		duration: Duration!
+	): [IntValues!]!
+	getThermodynamic(
+		metric: MetricCondition!
+		duration: Duration!
+	): Thermodynamic
+"""TopN is an aggregation query."""
+	getServiceTopN(
+		name: String!
+		topN: Int!
+		duration: Duration!
+		order: Order!
+	): [TopNEntity!]!
+	getAllServiceInstanceTopN(
+		name: String!
+		topN: Int!
+		duration: Duration!
+		order: Order!
+	): [TopNEntity!]!
+	getServiceInstanceTopN(
+		serviceId: ID!
+		name: String!
+		topN: Int!
+		duration: Duration!
+		order: Order!
+	): [TopNEntity!]!
+	getAllEndpointTopN(
+		name: String!
+		topN: Int!
+		duration: Duration!
+		order: Order!
+	): [TopNEntity!]!
+	getEndpointTopN(
+		serviceId: ID!
+		name: String!
+		topN: Int!
+		duration: Duration!
+		order: Order!
+	): [TopNEntity!]!
+	getTopNRecords(
+		condition: TopNRecordsCondition!
+	): [TopNRecord!]!
+"""Since 9.5.0 `typeOfMetrics` and `listMetrics` are moved to metrics-v3.
+Metrics definition metadata query. Response the metrics type which determines the suitable query methods.
+typeOfMetrics(name: String!): MetricsType!
+Get the list of all available metrics in the current OAP server.
+Param, regex, could be used to filter the metrics by name.
+listMetrics(regex: String): [MetricDefinition!]!
+Read metrics single value in the duration of required metrics"""
+	readMetricsValue(
+		condition: MetricsCondition!
+		duration: Duration!
+	): Long!
+"""Read metrics single value in the duration of required metrics
+NullableValue#isEmptyValue == true indicates no telemetry data rather than aggregated value is actually zero."""
+	readNullableMetricsValue(
+		condition: MetricsCondition!
+		duration: Duration!
+	): NullableValue!
+"""Read time-series values in the duration of required metrics"""
+	readMetricsValues(
+		condition: MetricsCondition!
+		duration: Duration!
+	): MetricsValues!
+"""Read entity list of required metrics and parent entity type."""
+	sortMetrics(
+		condition: TopNCondition!
+		duration: Duration!
+	): [SelectedRecord!]!
+"""Read value in the given time duration, usually as a linear.
+labels: the labels you need to query."""
+	readLabeledMetricsValues(
+		condition: MetricsCondition!
+		labels: [String!]!
+		duration: Duration!
+	): [MetricsValues!]!
+"""Heatmap is bucket based value statistic result."""
+	readHeatMap(
+		condition: MetricsCondition!
+		duration: Duration!
+	): HeatMap
+"""Deprecated since 9.3.0, replaced by readRecords defined in record.graphqls
+Read the sampled records
+TopNCondition#scope is not required."""
+	readSampledRecords(
+		condition: TopNCondition!
+		duration: Duration!
+	): [SelectedRecord!]!
+"""Search segment list with given conditions"""
+	queryBasicTraces(
+		condition: TraceQueryCondition
+	): TraceBrief
+"""Read the specific trace ID with given trace ID"""
+	queryTrace(
+		traceId: ID!
+	): Trace
+"""Read the list of searchable keys"""
+	queryTraceTagAutocompleteKeys(
+		duration: Duration!
+	): [String!]
+"""Search the available value options of the given key."""
+	queryTraceTagAutocompleteValues(
+		tagKey: String!
+		duration: Duration!
+	): [String!]
+	getAlarmTrend(
+		duration: Duration!
+	): AlarmTrend!
+	getAlarm(
+		duration: Duration!
+		scope: Scope
+		keyword: String
+		paging: Pagination!
+		tags: [AlarmTag]
+	): Alarms
+"""Return true if the current storage implementation supports fuzzy query for logs."""
+	supportQueryLogsByKeywords: Boolean!
+	queryLogs(
+		condition: LogQueryCondition
+	): Logs
+"""Test the logs and get the results of the LAL output."""
+	test(
+		requests: LogTestRequest!
+	): LogTestResponse!
+	queryLogTagAutocompleteKeys(
+		duration: Duration!
+	): [String!]
+	queryLogTagAutocompleteValues(
+		tagKey: String!
+		duration: Duration!
+	): [String!]
+"""query all task list, order by ProfileTask#startTime descending"""
+	getProfileTaskList(
+		serviceId: ID
+		endpointName: String
+	): [ProfileTask!]!
+"""query all task logs"""
+	getProfileTaskLogs(
+		taskID: String
+	): [ProfileTaskLog!]!
+"""query all task profiled segment list"""
+	getProfileTaskSegments(
+		taskID: ID!
+	): [ProfiledTraceSegments!]!
+"""analyze multiple profiled segments, start and end time use timestamp(millisecond)"""
+	getSegmentsProfileAnalyze(
+		queries: [SegmentProfileAnalyzeQuery!]!
+	): ProfileAnalyzation!
+"""Read an existing UI template according to given id."""
+	getTemplate(
+		id: String!
+	): DashboardConfiguration
+"""Read all configuration templates。"""
+	getAllTemplates: [DashboardConfiguration!]!
+"""Read all menu items"""
+	getMenuItems: [MenuItem!]!
+	queryBrowserErrorLogs(
+		condition: BrowserErrorLogQueryCondition
+	): BrowserErrorLogs
+	queryEvents(
+		condition: EventQueryCondition
+	): Events
+"""Read all available layers
+UI could use this list to determine available dashboards/panels
+The available layers would change with time in the runtime, because new service could be detected in any time.
+This list should be loaded periodically."""
+	listLayers: [String!]!
+"""Read the service list according to layer."""
+	listServices(
+		layer: String
+	): [Service!]!
+"""Find service according to given ID. Return null if not existing."""
+	getService(
+		serviceId: String!
+	): Service
+"""Search and find service according to given name. Return null if not existing."""
+	findService(
+		serviceName: String!
+	): Service
+"""Read service instance list."""
+	listInstances(
+		duration: Duration!
+		serviceId: ID!
+	): [ServiceInstance!]!
+"""Search and find service instance according to given ID. Return null if not existing."""
+	getInstance(
+		instanceId: String!
+	): ServiceInstance
+"""Search and find matched endpoints according to given service and keyword(optional)
+If no keyword, randomly choose endpoint based on `limit` value."""
+	findEndpoint(
+		keyword: String
+		serviceId: ID!
+		limit: Int!
+	): [Endpoint!]!
+	getEndpointInfo(
+		endpointId: ID!
+	): EndpointInfo
+"""Read process list."""
+	listProcesses(
+		duration: Duration!
+		instanceId: ID!
+	): [Process!]!
+"""Find process according to given ID. Return null if not existing."""
+	getProcess(
+		processId: ID!
+	): Process
+"""Get the number of matched processes through serviceId, labels
+Labels: the matched process should contain all labels
+
+The return is not a precise number, the process has its lifecycle, as it reboots and shutdowns with time.
+The return number just gives an abstract of the scale of profiling that would be applied."""
+	estimateProcessScale(
+		serviceId: ID!
+		labels: [String!]!
+	): Long!
+	getTimeInfo: TimeInfo
+"""query eBPF profiling data for prepare create task"""
+	queryPrepareCreateEBPFProfilingTaskData(
+		serviceId: ID!
+	): EBPFProfilingTaskPrepare!
+"""query eBPF profiling task list
+query `triggerType == FIXED_TIME` when triggerType is absent"""
+	queryEBPFProfilingTasks(
+		serviceId: ID
+		serviceInstanceId: ID
+		targets: [EBPFProfilingTargetType!]
+		triggerType: EBPFProfilingTriggerType
+		duration: Duration
+	): [EBPFProfilingTask!]!
+"""query schedules from profiling task"""
+	queryEBPFProfilingSchedules(
+		taskId: ID!
+	): [EBPFProfilingSchedule!]!
+"""analyze the profiling schedule
+aggregateType is "EBPFProfilingAnalyzeAggregateType#COUNT" as default."""
+	analysisEBPFProfilingResult(
+		scheduleIdList: [ID!]!
+		timeRanges: [EBPFProfilingAnalyzeTimeRange!]!
+		aggregateType: EBPFProfilingAnalyzeAggregateType
+	): EBPFProfilingAnalyzation!
+"""query all continuous profiling task through service"""
+	queryContinuousProfilingServiceTargets(
+		serviceId: ID!
+	): [ContinuousProfilingPolicyTarget!]!
+"""query all continuous profiling monitoring instances through service and policy"""
+	queryContinuousProfilingMonitoringInstances(
+		serviceId: ID!
+		target: ContinuousProfilingTargetType!
+	): [ContinuousProfilingMonitoringInstance!]!
+"""Query collected records with given metric name and parent entity conditions, and return in the requested order."""
+	readRecords(
+		condition: RecordCondition!
+		duration: Duration!
+	): [Record!]!
+}
+
+enum QueryOrder {
+	BY_START_TIME
+	BY_DURATION
+}
+
+type Record {
+"""Literal string name for visualization"""
+	name: String!
+"""ID of this record"""
+	id: ID!
+"""Usually an integer value as this is a metric to measure this entity ID."""
+	value: String
+"""Have value, Only if the record has related trace id.
+UI should show this as an attached value."""
+	refId: ID
+}
+
+input RecordCondition {
+	name: String!
+	parentEntity: Entity!
+	topN: Int!
+	order: Order!
+}
+
+"""Ref represents the link between the segment and its parents.
+The parent(ref) may not exists, which means batch process.
+The UI should display a list, representing the other trace IDs."""
+type Ref {
+	traceId: ID!
+	parentSegmentId: ID!
+	parentSpanId: Int!
+"""Ref type represents why did the ref happen.
+Include: 1) CrossProcess 2) CrossThread"""
+	type: RefType!
+}
+
+enum RefType {
+	CROSS_PROCESS
+	CROSS_THREAD
+}
+
+enum Scope {
+	All
+	Service
+	ServiceInstance
+	Endpoint
+	Process
+	ServiceRelation
+	ServiceInstanceRelation
+	EndpointRelation
+	ProcessRelation
+}
+
+input SegmentProfileAnalyzeQuery {
+	segmentId: String!
+	timeRange: ProfileAnalyzeTimeRange!
+}
+
+type SelectedRecord {
+"""Literal string name for visualization"""
+	name: String!
+"""ID represents the owner of this entity."""
+	id: ID!
+"""Usually an integer value as this is metrics."""
+	value: String
+"""Have value, Only if the record has related trace id.
+UI should show this as an attached value."""
+	refId: ID
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Metadata query v2 protocol provides the layer-based query to various services monitored by SkyWalking ecosystem.
+It would adopt multiple-layer modern cloud native infrastructure.
+In the v9 core, v1 protocol is provided on the top of the v2 implementation.
+The v1's services, Databases, Browsers are all services with layer=general, layer=database, layer=browser.
+Each service would have native definition about instance and endpoint.
+Service is a logic concept, representing a collection of runnable context."""
+type Service {
+"""Service ID = BASE64(name) + '.1' which keeps the most compatibility to 8.x data formats.
+All metrics of the service would refer to this ID.
+The layer ID would not be included in the service ID, as a service could have multidimensional monitoring, such as ALS + DP for the same service
+----- Storage -----
+Row ID in service_traffic entity includes layer ID.
+Service ID = BASE64(name) + '.' + Layer ID
+-------------------"""
+	id: ID!
+"""The unqiue name gloablly.
+Typically, name could be formated as `group::name` which would be recognized as a group and a short name."""
+	name: String!
+"""The custom/logic group of the service"""
+	group: String!
+"""The unique name in the group. Mostly for visualization."""
+	shortName: String!
+"""Layer represents an abstract framework in the computer science, such as operation system(VM layer), Kubernetes(k8s layer),
+Service Mesh(typical Istio+Envoy layer).
+The name of layer is a string, but we would reserve the following for visualization(UI)
+https://github.com/apache/skywalking/blob/master/oap-server/server-core/src/main/java/org/apache/skywalking/oap/server/core/analysis/Layer.java
+
+UI uses this literal layer names to provide various layout for their services with metrics.
+
+The layer collection is from the instances of this service. So, one service could have multiple layer due to instance-level registration."""
+	layers: [String!]!
+"""Normal service is the service having installed agent or metrics reported directly.
+Unnormal service is conjectural service, usually detected by the agent."""
+	normal: Boolean
+}
+
+"""The minimal runnable unit in the service. It provides consistent and fundamental capabilities in physical perspective.
+A service, as a logic unit, have multiple instances in the runtime.
+Such as, an OS-level processor, a pod in k8s, a running function in the FAAS engine."""
+type ServiceInstance {
+	id: ID!
+	name: String!
+	attributes: [Attribute!]!
+	language: Language!
+	instanceUUID: String!
+}
+
+"""Node in ServiceInstanceTopology"""
+type ServiceInstanceNode {
+"""The instance id of each node,"""
+	id: ID!
+"""The literal name of the #id. Instance Name."""
+	name: String!
+"""Service id"""
+	serviceId: ID!
+"""The literal name of the #serviceId."""
+	serviceName: String!
+"""[Deprecated]
+No type for service instance topology."""
+	type: String
+"""It is a conjecture node or real node, to represent an instance."""
+	isReal: Boolean!
+}
+
+"""The instance topology based on the given serviceIds"""
+type ServiceInstanceTopology {
+	nodes: [ServiceInstanceNode!]!
+	calls: [Call!]!
+}
+
+type Source {
+	service: String
+	serviceInstance: String
+	endpoint: String
+}
+
+input SourceInput {
+	service: String
+	serviceInstance: String
+	endpoint: String
+}
+
+type Span {
+	traceId: ID!
+	segmentId: ID!
+	spanId: Int!
+	parentSpanId: Int!
+	refs: [Ref!]!
+	serviceCode: String!
+	serviceInstanceName: ID!
+"""The start timestamp of the span in millisecond"""
+	startTime: Long!
+"""The end timestamp of the span in millisecond"""
+	endTime: Long!
+	endpointName: String
+"""There are three span types: Local, Entry and Exit"""
+	type: String!
+"""Peer network id, e.g. host+port, ip+port"""
+	peer: String
+"""The name of the tech stack component used for the execution represented by the span."""
+	component: String
+"""The error status is true when the execution returns error code or throws an exception(determined by the language)."""
+	isError: Boolean
+"""There are 5 layers: Unknown, Database, RPCFramework, Http, MQ and Cache"""
+	layer: String
+"""key-value(string) pairs to specify unique attributes of ths span"""
+	tags: [KeyValue!]!
+"""The events happen of the span, especially in-process."""
+	logs: [LogEntity!]!
+"""The attached events happen in the span's context but out-of-process.
+Check SpanAttachedEvent definition for more details."""
+	attachedEvents: [SpanAttachedEvent!]!
+}
+
+"""SpanAttachedEvent represents an attached event for a traced RPC.
+When an RPC is being traced by the in-process language agent, a span would be reported by the client-side agent.
+And the rover would be aware of this RPC due to the existing tracing header.
+Then, the rover agent collects extra information from the OS level to provide assistance information to diagnose network performance.
+
+Notice, THIS IS ALSO AVAILABLE FOR ZIPKIN SPAN.
+-----------------------------------------------
+In SkyWalking, ZipkinQueryHandler provides full support for all Zipkin span queries.
+SpanAttachedEvent query is supported through the trace query URI: /api/v2/trace/{traceId}
+A new `attachedEvents` field would be added in JSONArray format with SpanAttachedEvent in JSON as elements."""
+type SpanAttachedEvent {
+"""The nanosecond timestamp of the event's start time.
+Notice, most unit of timestamp in SkyWalking is milliseconds, but NANO-SECOND is required here.
+Because the attached event happens in the OS syscall level, most of them are executed rapidly."""
+	startTime: Instant!
+"""The official event name.
+For example, the event name is a method signature from syscall stack."""
+	event: String!
+"""[Optional] The nanosecond timestamp of the event's end time."""
+	endTime: Instant!
+"""The tags for this event includes some extra OS level information,
+such as
+1. net_device used for this exit span.
+2. network L7 protocol"""
+	tags: [KeyValue]!
+"""The summary of statistics during this event.
+Each statistic provides a name(metric name) to represent the name, and an int64/long as the value."""
+	summary: [KeyNumericValue!]!
+}
+
+input SpanTag {
+	key: String!
+	value: String
+}
+
+enum Step {
+	DAY
+	HOUR
+	MINUTE
+	SECOND
+}
+
+"""Built-in String"""
+scalar String
+
+type TemplateChangeStatus {
+	id: String!
+"""True means change successfully."""
+	status: Boolean!
+	message: String
+}
+
+type Thermodynamic {
+"""Each element in nodes represents a point in Thermodynamic Diagram
+And the element includes three values:
+1) Time Bucket based on query duration
+2) Response time index.
+   Response time = [responseTimeStep * index, responseTimeStep * (index+1))
+   The last element: [Response Time * index, MAX)
+3) The number of calls in this response time duration.
+
+Example:
+[ [0, 0, 10], [0, 1, 43], ...]
+These ^^^ two represent the left bottom element, and another element above it."""
+	nodes: [[Int]!]!
+	axisYStep: Int!
+}
+
+type TimeInfo {
+"""server current timezone, format: +0800"""
+	timezone: String
+"""server current timestamp, format: 1569124528392"""
+	currentTimestamp: Long
+}
+
+input TopNCondition {
+	name: String!
+	parentService: String
+	normal: Boolean
+	scope: Scope
+	topN: Int!
+	order: Order!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Legacy metrics query protocol
+Replaced by the metrics-v2 in the future"""
+type TopNEntity {
+	name: String!
+	id: ID!
+	value: Long!
+}
+
+type TopNRecord {
+	statement: String
+	latency: Long!
+"""Have value, Only if the record has the trace id.
+Slow record"""
+	traceId: String
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Top N record query is different with aggregation Query.
+Both of query results are top N, but aggregation topN query needs to do aggregation at query stage,
+the top N record query is just do order and get the list.
+Legacy metrics query protocol
+Replaced by the metrics-v2 in the future
+Top N query is based on latency order by given service and metric name."""
+input TopNRecordsCondition {
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Top N record query is different with aggregation Query.
+Both of query results are top N, but aggregation topN query needs to do aggregation at query stage,
+the top N record query is just do order and get the list.
+Legacy metrics query protocol
+Replaced by the metrics-v2 in the future
+Top N query is based on latency order by given service and metric name."""
+	serviceId: ID!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Top N record query is different with aggregation Query.
+Both of query results are top N, but aggregation topN query needs to do aggregation at query stage,
+the top N record query is just do order and get the list.
+Legacy metrics query protocol
+Replaced by the metrics-v2 in the future
+Top N query is based on latency order by given service and metric name."""
+	metricName: String!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Top N record query is different with aggregation Query.
+Both of query results are top N, but aggregation topN query needs to do aggregation at query stage,
+the top N record query is just do order and get the list.
+Legacy metrics query protocol
+Replaced by the metrics-v2 in the future
+Top N query is based on latency order by given service and metric name."""
+	topN: Int!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Top N record query is different with aggregation Query.
+Both of query results are top N, but aggregation topN query needs to do aggregation at query stage,
+the top N record query is just do order and get the list.
+Legacy metrics query protocol
+Replaced by the metrics-v2 in the future
+Top N query is based on latency order by given service and metric name."""
+	order: Order!
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+Top N record query is different with aggregation Query.
+Both of query results are top N, but aggregation topN query needs to do aggregation at query stage,
+the top N record query is just do order and get the list.
+Legacy metrics query protocol
+Replaced by the metrics-v2 in the future
+Top N query is based on latency order by given service and metric name."""
+	duration: Duration!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+The overview topology of the whole application cluster or services,"""
+type Topology {
+	nodes: [Node!]!
+	calls: [Call!]!
+}
+
+"""The trace represents a distributed trace, includes all segments and spans."""
+type Trace {
+	spans: [Span!]!
+}
+
+"""Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+The list of traces"""
+type TraceBrief {
+	traces: [BasicTrace!]!
+}
+
+"""Represent the conditions used for query TraceBrief"""
+input TraceQueryCondition {
+"""Represent the conditions used for query TraceBrief"""
+	serviceId: ID
+"""Represent the conditions used for query TraceBrief"""
+	serviceInstanceId: ID
+"""Represent the conditions used for query TraceBrief"""
+	traceId: String
+"""Represent the conditions used for query TraceBrief"""
+	endpointId: ID
+"""Represent the conditions used for query TraceBrief"""
+	queryDuration: Duration
+"""Represent the conditions used for query TraceBrief"""
+	minTraceDuration: Int
+"""Represent the conditions used for query TraceBrief"""
+	maxTraceDuration: Int
+"""Represent the conditions used for query TraceBrief"""
+	traceState: TraceState!
+"""Represent the conditions used for query TraceBrief"""
+	queryOrder: QueryOrder!
+"""Represent the conditions used for query TraceBrief"""
+	tags: [SpanTag!]
+"""Represent the conditions used for query TraceBrief"""
+	paging: Pagination!
+}
+
+"""Trace related condition"""
+input TraceScopeCondition {
+"""Trace related condition"""
+	traceId: String!
+"""Trace related condition"""
+	segmentId: String
+"""Trace related condition"""
+	spanId: Int
+}
+
+enum TraceState {
+	ALL
+	SUCCESS
+	ERROR
+}
+
+

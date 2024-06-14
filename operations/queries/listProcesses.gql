@@ -1,0 +1,17 @@
+query ListProcesses($duration: Duration!, $instanceId: ID!){
+    listProcesses(duration: $duration, instanceId: $instanceId){
+        id
+        name
+        serviceId
+        serviceName
+        instanceId
+        instanceName
+        agentId
+        detectType
+        attributes{
+            name
+            value
+        }
+        labels
+    }
+}

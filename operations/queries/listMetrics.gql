@@ -1,0 +1,7 @@
+query ListMetrics($regex: String){
+    listMetrics(regex: $regex){
+        name
+        type
+        catalog
+    }
+}

@@ -1,0 +1,10 @@
+query ListServices($layer: String){
+    listServices(layer: $layer){
+        id
+        name
+        group
+        shortName
+        layers
+        normal
+    }
+}

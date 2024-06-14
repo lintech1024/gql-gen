@@ -1,0 +1,6 @@
+mutation CreateProfileTask($creationRequest: ProfileTaskCreationRequest){
+    createProfileTask(creationRequest: $creationRequest){
+        errorReason
+        id
+    }
+}

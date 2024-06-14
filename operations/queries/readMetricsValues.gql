@@ -1,0 +1,12 @@
+query ReadMetricsValues($condition: MetricsCondition!, $duration: Duration!){
+    readMetricsValues(condition: $condition, duration: $duration){
+        label
+        values{
+            values{
+                id
+                value
+                isEmptyValue
+            }
+        }
+    }
+}

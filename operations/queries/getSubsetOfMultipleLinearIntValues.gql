@@ -1,0 +1,9 @@
+query GetSubsetOfMultipleLinearIntValues($metric: MetricCondition!, $linearIndex: [Int!]!, $duration: Duration!){
+    getSubsetOfMultipleLinearIntValues(metric: $metric, linearIndex: $linearIndex, duration: $duration){
+        values{
+            id
+            value
+            isEmptyValue
+        }
+    }
+}

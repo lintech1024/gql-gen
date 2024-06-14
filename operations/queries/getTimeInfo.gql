@@ -1,0 +1,6 @@
+query GetTimeInfo{
+    getTimeInfo{
+        timezone
+        currentTimestamp
+    }
+}

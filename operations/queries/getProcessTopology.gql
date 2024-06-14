@@ -1,0 +1,21 @@
+query GetProcessTopology($serviceInstanceId: ID!, $duration: Duration!){
+    getProcessTopology(serviceInstanceId: $serviceInstanceId, duration: $duration){
+        nodes{
+            id
+            serviceId
+            serviceName
+            serviceInstanceId
+            serviceInstanceName
+            name
+            isReal
+        }
+        calls{
+            source
+            sourceComponents
+            target
+            targetComponents
+            id
+            detectPoints
+        }
+    }
+}

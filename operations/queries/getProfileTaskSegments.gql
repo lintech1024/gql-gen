@@ -1,0 +1,43 @@
+query GetProfileTaskSegments($taskID: ID!){
+    getProfileTaskSegments(taskID: $taskID){
+        traceId
+        instanceId
+        instanceName
+        endpointNames
+        duration
+        start
+        spans{
+            spanId
+            parentSpanId
+            segmentId
+            refs{
+                traceId
+                parentSegmentId
+                parentSpanId
+                type
+            }
+            serviceCode
+            serviceInstanceName
+            startTime
+            endTime
+            endpointName
+            type
+            peer
+            component
+            isError
+            layer
+            tags{
+                key
+                value
+            }
+            logs{
+                time
+                data{
+                    key
+                    value
+                }
+            }
+            profiled
+        }
+    }
+}
